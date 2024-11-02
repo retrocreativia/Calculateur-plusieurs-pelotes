@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculateur de Laine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Calculateur de Laine pour 2 Types de Pelotes</h1>
+
+    <h2>Échantillon Pelote 1</h2>
+    <label>Largeur (cm): <input type="number" id="widthSample1"></label><br>
+    <label>Hauteur (cm): <input type="number" id="heightSample1"></label><br>
+    <label>Poids (g): <input type="number" id="weightSample1"></label><br>
+
+    <h2>Échantillon Pelote 2</h2>
+    <label>Largeur (cm): <input type="number" id="widthSample2"></label><br>
+    <label>Hauteur (cm): <input type="number" id="heightSample2"></label><br>
+    <label>Poids (g): <input type="number" id="weightSample2"></label><br>
+
+    <h2>Dimensions du Corps</h2>
+    <label>Largeur (cm): <input type="number" id="widthBody"></label><br>
+    <label>Hauteur (cm): <input type="number" id="heightBody"></label><br>
+
+    <h2>Dimensions des Manches (facultatif)</h2>
+    <label>Largeur (cm): <input type="number" id="widthSleeve"></label><br>
+    <label>Hauteur (cm): <input type="number" id="heightSleeve"></label><br>
+
+    <button onclick="calculateYarn()">Calculer</button>
+
+    <h2>Résultats</h2>
+    <p>Poids de laine nécessaire pour le corps (Pelote 1): <span id="resultBody1">0 g</span></p>
+    <p>Poids de laine nécessaire pour le corps (Pelote 2): <span id="resultBody2">0 g</span></p>
+    <p>Poids de laine nécessaire pour les manches (Pelote 1): <span id="resultSleeve1">0 g</span></p>
+    <p>Poids de laine nécessaire pour les manches (Pelote 2): <span id="resultSleeve2">0 g</span></p>
+    <p>Poids total de laine nécessaire (Pelote 1): <span id="totalWeight1">0 g</span></p>
+    <p>Poids total de laine nécessaire (Pelote 2): <span id="totalWeight2">0 g</span></p>
+
+    <script src="script.js"></script>
+</body>
+</html>
