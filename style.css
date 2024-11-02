@@ -1,99 +1,105 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #ffffff; /* Fond blanc */
+    background-color: #ffffff;
     display: flex;
     justify-content: center;
-    padding: 15px; /* Réduction du padding général */
-    font-size: 14px; /* Réduction de la taille de la police */
+    padding: 15px;
+    font-size: 14px;
 }
 
 .container {
     display: flex;
-    gap: 15px; /* Réduction de l'espace entre les sections */
+    gap: 15px; /* Espace entre les colonnes */
 }
 
-.left-section, .right-section {
-    border: 2px solid #d147a3; /* Encadré rose */
-    padding: 15px; /* Réduction du padding des sections */
+.left-section, .middle-section, .right-section {
+    border: 2px solid #d147a3;
+    padding: 15px;
     border-radius: 8px;
-    background-color: #ffffff; /* Fond blanc des encadrés */
-    width: 40%; /* Réduction de la largeur des sections */
+    background-color: #ffffff;
+    width: 30%; /* Ajuste la largeur pour trois colonnes */
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
 }
 
 h2 {
-    color: #a1357a; /* Couleur rose plus sombre pour les titres */
-    margin-top: 15px; /* Réduction de l'espace au-dessus des titres */
-    font-size: 16px; /* Réduction de la taille des titres */
+    color: #a1357a;
+    margin-top: 15px;
+    font-size: 16px;
+}
+
+h3 {
+    color: #a1357a;
+    margin-top: 10px;
+    font-size: 15px;
 }
 
 .result-text {
-    color: #d147a3; /* Couleur rose pour le texte explicatif */
+    color: #d147a3;
     font-weight: bold;
-    font-size: 14px; /* Taille de la police pour le texte explicatif */
-    margin-bottom: 5px; /* Réduction de l'espace sous le texte */
+    font-size: 14px;
+    margin-bottom: 5px;
 }
 
 .result-grammage {
-    color: #4CAF50; /* Couleur verte pour le résultat du grammage */
+    color: #4CAF50;
     font-weight: bold;
 }
 
 label {
     display: block;
-    margin-top: 5px; /* Réduction de l'espace au-dessus des labels */
+    margin-top: 5px;
     font-weight: bold;
-    color: #d147a3; /* Couleur rose pour les labels */
-    font-size: 14px; /* Taille de la police */
+    color: #d147a3;
+    font-size: 14px;
 }
 
 input {
     width: 100%;
-    padding: 6px; /* Réduction de l'espace à l'intérieur des champs */
-    margin-bottom: 5px; /* Réduction de la marge inférieure */
-    border: 1px solid #d147a3; /* Bordure rose */
+    padding: 6px;
+    margin-bottom: 5px;
+    border: 1px solid #d147a3;
     border-radius: 4px;
     box-sizing: border-box;
-    font-weight: bold; /* Texte en gras */
-    color: #a1357a; /* Couleur du texte en gras identique aux titres */
-    font-size: 14px; /* Taille de la police des champs */
+    font-weight: bold;
+    color: #a1357a;
+    font-size: 14px;
 }
 
 button {
-    padding: 10px 15px; /* Taille réduite pour les boutons */
-    background-color: #d147a3; /* Couleur rose pour les boutons */
+    padding: 10px 15px;
+    background-color: #d147a3;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
-    font-size: 14px; /* Taille standard du texte des boutons */
+    font-size: 14px;
     text-align: center;
-    margin-bottom: 8px; /* Réduction de l'espace entre les boutons */
+    margin-bottom: 8px;
 }
 
 button.large {
-    padding: 12px 18px; /* Taille un peu plus grande pour le bouton large */
-    font-size: 15px; /* Taille du texte légèrement augmentée */
+    padding: 12px 18px;
+    font-size: 15px;
 }
 
 button.highlighted {
-    padding: 15px 20px; /* Plus grand pour le bouton de calcul total */
-    background-color: #d147a3; /* Couleur rose pour le bouton */
-    font-size: 16px; /* Texte plus grand */
-    margin-top: 15px; /* Espace réduit au-dessus */
-    margin-bottom: 15px; /* Espace réduit en dessous */
-    align-self: center; /* Centre le bouton dans sa section */
+    padding: 15px 20px;
+    background-color: #d147a3;
+    font-size: 16px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    align-self: center;
 }
 
 button:hover {
-    background-color: #b8378a; /* Couleur rose foncée au survol */
+    background-color: #b8378a;
 }
 
 input:focus {
     outline: none;
-    border-color: #d147a3; /* Bordure rose lorsque le champ est actif */
-    box-shadow: 0 0 3px #d147a3; /* Ombre rose réduite */
+    border-color: #d147a3;
+    box-shadow: 0 0 3px #d147a3;
 }
