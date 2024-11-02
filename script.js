@@ -1,38 +1,46 @@
+let peloteCount = 2;
+
+document.getElementById('addPeloteBtn').addEventListener('click', () => {
+    peloteCount++;
+    const peloteForm = document.createElement('div');
+    peloteForm.classList.add('section');
+    peloteForm.id = `pelote${peloteCount}`;
+    peloteForm.innerHTML = `
+        <h2>Échantillon Pelote ${peloteCount}</h2>
+        <label>Largeur (cm): <input type="number" id="widthSample${peloteCount}" class="input-field"></label><br>
+        <label>Hauteur (cm): <input type="number" id="heightSample${peloteCount}" class="input-field"></label><br>
+        <label>Poids (g): <input type="number" id="weightSample${peloteCount}" class="input-field"></label><br>
+    `;
+    document.getElementById('pelote-forms').appendChild(peloteForm);
+});
+
 function calculateYarn() {
-    // Récupérer les données des échantillons
-    let widthSample1 = parseFloat(document.getElementById("widthSample1").value);
-    let heightSample1 = parseFloat(document.getElementById("heightSample1").value);
-    let weightSample1 = parseFloat(document.getElementById("weightSample1").value);
+    const widthBody = parseFloat(document.getElementById("widthBody").value);
+    const heightBody = parseFloat(document.getElementById("heightBody").value);
+    const widthSleeve = parseFloat(document.getElementById("widthSleeve").value);
+    const heightSleeve = parseFloat(document.getElementById("heightSleeve").value);
 
-    let widthSample2 = parseFloat(document.getElementById("widthSample2").value);
-    let heightSample2 = parseFloat(document.getElementById("heightSample2").value);
-    let weightSample2 = parseFloat(document.getElementById("weightSample2").value);
+    let resultsHTML = '';
 
-    // Récupérer les dimensions du corps
-    let widthBody = parseFloat(document.getElementById("widthBody").value);
-    let heightBody = parseFloat(document.getElementById("heightBody").value);
+    for (let i = 1; i <= peloteCount; i++) {
+        const widthSample = parseFloat(document.getElementById(`widthSample${i}`).value);
+        const heightSample = parseFloat(document.getElementById(`heightSample${i}`).value);
+        const weightSample = parseFloat(document.getElementById(`weightSample${i}`).value);
 
-    // Calculer le poids pour le corps
-    let bodyWeight1 = (widthBody * heightBody) / (widthSample1 * heightSample1) * weightSample1;
-    let bodyWeight2 = (widthBody * heightBody) / (widthSample2 * heightSample2) * weightSample2;
+        if (isNaN(widthSample) || isNaN(heightSample) || isNaN(weightSample)) {
+            continue;
+        }
 
-    // Récupérer les dimensions des manches
-    let widthSleeve = parseFloat(document.getElementById("widthSleeve").value);
-    let heightSleeve = parseFloat(document.getElementById("heightSleeve").value);
+        const bodyWeight = (widthBody * heightBody) / (widthSample * heightSample) * weightSample;
+        const sleeveWeight = (widthSleeve * heightSleeve) / (widthSample * heightSample) * weightSample;
+        const totalWeight = bodyWeight + sleeveWeight;
 
-    // Calculer le poids pour les manches
-    let sleeveWeight1 = (widthSleeve * heightSleeve) / (widthSample1 * heightSample1) * weightSample1;
-    let sleeveWeight2 = (widthSleeve * heightSleeve) / (widthSample2 * heightSample2) * weightSample2;
+        resultsHTML += `
+            <p>Poids de laine nécessaire pour le corps (Pelote ${i}): ${bodyWeight.toFixed(2)} g</p>
+            <p>Poids de laine nécessaire pour les manches (Pelote ${i}): ${sleeveWeight.toFixed(2)} g</p>
+            <p>Poids total de laine nécessaire (Pelote ${i}): ${totalWeight.toFixed(2)} g</p>
+        `;
+    }
 
-    // Calculer le poids total
-    let totalWeight1 = bodyWeight1 + sleeveWeight1;
-    let totalWeight2 = bodyWeight2 + sleeveWeight2;
-
-    // Afficher les résultats
-    document.getElementById("resultBody1").innerText = bodyWeight1.toFixed(2) + " g";
-    document.getElementById("resultBody2").innerText = bodyWeight2.toFixed(2) + " g";
-    document.getElementById("resultSleeve1").innerText = sleeveWeight1.toFixed(2) + " g";
-    document.getElementById("resultSleeve2").innerText = sleeveWeight2.toFixed(2) + " g";
-    document.getElementById("totalWeight1").innerText = totalWeight1.toFixed(2) + " g";
-    document.getElementById("totalWeight2").innerText = totalWeight2.toFixed(2) + " g";
+    document.getElementById('resultsContainer').innerHTML = resultsHTML;
 }
