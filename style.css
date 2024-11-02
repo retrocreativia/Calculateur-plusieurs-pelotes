@@ -1,69 +1,99 @@
 body {
-    background-color: #f4f4f9;
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #ffffff; /* Fond blanc */
     display: flex;
     justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+    padding: 15px; /* Réduction du padding général */
+    font-size: 14px; /* Réduction de la taille de la police */
 }
 
 .container {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    width: 80%;
-    max-width: 600px;
+    display: flex;
+    gap: 15px; /* Réduction de l'espace entre les sections */
 }
 
-h1 {
-    color: #333;
-    text-align: center;
-    margin-bottom: 20px;
+.left-section, .right-section {
+    border: 2px solid #d147a3; /* Encadré rose */
+    padding: 15px; /* Réduction du padding des sections */
+    border-radius: 8px;
+    background-color: #ffffff; /* Fond blanc des encadrés */
+    width: 40%; /* Réduction de la largeur des sections */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 h2 {
-    color: #444;
-    margin-top: 20px;
+    color: #a1357a; /* Couleur rose plus sombre pour les titres */
+    margin-top: 15px; /* Réduction de l'espace au-dessus des titres */
+    font-size: 16px; /* Réduction de la taille des titres */
 }
 
-.section {
-    margin-bottom: 20px;
+.result-text {
+    color: #d147a3; /* Couleur rose pour le texte explicatif */
+    font-weight: bold;
+    font-size: 14px; /* Taille de la police pour le texte explicatif */
+    margin-bottom: 5px; /* Réduction de l'espace sous le texte */
+}
+
+.result-grammage {
+    color: #4CAF50; /* Couleur verte pour le résultat du grammage */
+    font-weight: bold;
 }
 
 label {
     display: block;
-    margin: 5px 0;
-    color: #555;
+    margin-top: 5px; /* Réduction de l'espace au-dessus des labels */
+    font-weight: bold;
+    color: #d147a3; /* Couleur rose pour les labels */
+    font-size: 14px; /* Taille de la police */
 }
 
-.input-field {
+input {
     width: 100%;
-    padding: 5px;
-    margin-top: 5px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    padding: 6px; /* Réduction de l'espace à l'intérieur des champs */
+    margin-bottom: 5px; /* Réduction de la marge inférieure */
+    border: 1px solid #d147a3; /* Bordure rose */
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-weight: bold; /* Texte en gras */
+    color: #a1357a; /* Couleur du texte en gras identique aux titres */
+    font-size: 14px; /* Taille de la police des champs */
 }
 
-.calculate-btn {
-    background-color: #007BFF;
-    color: #fff;
-    padding: 10px 20px;
+button {
+    padding: 10px 15px; /* Taille réduite pour les boutons */
+    background-color: #d147a3; /* Couleur rose pour les boutons */
+    color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    width: 100%;
-    margin-top: 20px;
-    font-size: 16px;
+    font-weight: bold;
+    font-size: 14px; /* Taille standard du texte des boutons */
+    text-align: center;
+    margin-bottom: 8px; /* Réduction de l'espace entre les boutons */
 }
 
-.calculate-btn:hover {
-    background-color: #0056b3;
+button.large {
+    padding: 12px 18px; /* Taille un peu plus grande pour le bouton large */
+    font-size: 15px; /* Taille du texte légèrement augmentée */
 }
 
-.results p {
-    margin-top: 10px;
-    color: #333;
+button.highlighted {
+    padding: 15px 20px; /* Plus grand pour le bouton de calcul total */
+    background-color: #d147a3; /* Couleur rose pour le bouton */
+    font-size: 16px; /* Texte plus grand */
+    margin-top: 15px; /* Espace réduit au-dessus */
+    margin-bottom: 15px; /* Espace réduit en dessous */
+    align-self: center; /* Centre le bouton dans sa section */
+}
+
+button:hover {
+    background-color: #b8378a; /* Couleur rose foncée au survol */
+}
+
+input:focus {
+    outline: none;
+    border-color: #d147a3; /* Bordure rose lorsque le champ est actif */
+    box-shadow: 0 0 3px #d147a3; /* Ombre rose réduite */
 }
