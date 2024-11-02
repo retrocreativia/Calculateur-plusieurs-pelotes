@@ -6,10 +6,9 @@ document.getElementById('addPeloteBtn').addEventListener('click', () => {
     peloteForm.classList.add('section');
     peloteForm.id = `pelote${peloteCount}`;
     peloteForm.innerHTML = `
-        <h2>Échantillon Pelote ${peloteCount}</h2>
-        <label>Largeur (cm): <input type="number" id="widthSample${peloteCount}" class="input-field"></label><br>
-        <label>Hauteur (cm): <input type="number" id="heightSample${peloteCount}" class="input-field"></label><br>
-        <label>Poids (g): <input type="number" id="weightSample${peloteCount}" class="input-field"></label><br>
+        <label>Largeur (cm): <input type="number" id="widthSample${peloteCount}"></label>
+        <label>Hauteur (cm): <input type="number" id="heightSample${peloteCount}"></label>
+        <label>Poids (g): <input type="number" id="weightSample${peloteCount}"></label>
     `;
     document.getElementById('pelote-forms').appendChild(peloteForm);
 });
@@ -36,9 +35,9 @@ function calculateYarn() {
         const totalWeight = bodyWeight + sleeveWeight;
 
         resultsHTML += `
-            <p>Poids de laine nécessaire pour le corps (Pelote ${i}): ${bodyWeight.toFixed(2)} g</p>
-            <p>Poids de laine nécessaire pour les manches (Pelote ${i}): ${sleeveWeight.toFixed(2)} g</p>
-            <p>Poids total de laine nécessaire (Pelote ${i}): ${totalWeight.toFixed(2)} g</p>
+            <p class="result-text">Poids de laine nécessaire pour le corps (Pelote ${i}): <span class="result-grammage">${bodyWeight.toFixed(2)} g</span></p>
+            <p class="result-text">Poids de laine nécessaire pour les manches (Pelote ${i}): <span class="result-grammage">${sleeveWeight.toFixed(2)} g</span></p>
+            <p class="result-text">Poids total de laine nécessaire (Pelote ${i}): <span class="result-grammage">${totalWeight.toFixed(2)} g</span></p>
         `;
     }
 
