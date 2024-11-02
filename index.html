@@ -8,43 +8,39 @@
 </head>
 <body>
     <div class="container">
-        <h1>Calculateur de Laine pour plusieurs Types de Pelotes</h1>
+        <div class="left-section">
+            <h2>Échantillons de Pelotes</h2>
+            <div id="pelote-forms">
+                <div class="section" id="pelote1">
+                    <label>Largeur (cm): <input type="number" id="widthSample1"></label>
+                    <label>Hauteur (cm): <input type="number" id="heightSample1"></label>
+                    <label>Poids (g): <input type="number" id="weightSample1"></label>
+                </div>
 
-        <div id="pelote-forms">
-            <div class="section" id="pelote1">
-                <h2>Échantillon Pelote 1</h2>
-                <label>Largeur (cm): <input type="number" id="widthSample1" class="input-field"></label><br>
-                <label>Hauteur (cm): <input type="number" id="heightSample1" class="input-field"></label><br>
-                <label>Poids (g): <input type="number" id="weightSample1" class="input-field"></label><br>
+                <div class="section" id="pelote2">
+                    <label>Largeur (cm): <input type="number" id="widthSample2"></label>
+                    <label>Hauteur (cm): <input type="number" id="heightSample2"></label>
+                    <label>Poids (g): <input type="number" id="weightSample2"></label>
+                </div>
             </div>
-
-            <div class="section" id="pelote2">
-                <h2>Échantillon Pelote 2</h2>
-                <label>Largeur (cm): <input type="number" id="widthSample2" class="input-field"></label><br>
-                <label>Hauteur (cm): <input type="number" id="heightSample2" class="input-field"></label><br>
-                <label>Poids (g): <input type="number" id="weightSample2" class="input-field"></label><br>
-            </div>
+            <button id="addPeloteBtn" class="large">Ajouter une pelote</button>
         </div>
 
-        <button id="addPeloteBtn" class="calculate-btn">Ajouter une pelote</button>
+        <div class="right-section">
+            <h2>Calcul de la Laine</h2>
+            <label>Largeur du Corps (cm): <input type="number" id="widthBody"></label>
+            <label>Hauteur du Corps (cm): <input type="number" id="heightBody"></label>
 
-        <div class="section">
-            <h2>Dimensions du Corps</h2>
-            <label>Largeur (cm): <input type="number" id="widthBody" class="input-field"></label><br>
-            <label>Hauteur (cm): <input type="number" id="heightBody" class="input-field"></label><br>
-        </div>
-
-        <div class="section">
             <h2>Dimensions des Manches (facultatif)</h2>
-            <label>Largeur (cm): <input type="number" id="widthSleeve" class="input-field"></label><br>
-            <label>Hauteur (cm): <input type="number" id="heightSleeve" class="input-field"></label><br>
-        </div>
+            <label>Largeur des Manches (cm): <input type="number" id="widthSleeve"></label>
+            <label>Hauteur des Manches (cm): <input type="number" id="heightSleeve"></label>
 
-        <button class="calculate-btn" onclick="calculateYarn()">Calculer</button>
+            <button class="highlighted" onclick="calculateYarn()">Calculer</button>
 
-        <div class="results">
-            <h2>Résultats</h2>
-            <div id="resultsContainer"></div>
+            <div class="results">
+                <h2>Résultats</h2>
+                <div id="resultsContainer"></div>
+            </div>
         </div>
     </div>
 
