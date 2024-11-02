@@ -12,12 +12,14 @@
             <h2>Échantillons de Pelotes</h2>
             <div id="pelote-forms">
                 <div class="section" id="pelote1">
+                    <h3>Pelote 1 :</h3>
                     <label>Largeur (cm): <input type="number" id="widthSample1"></label>
                     <label>Hauteur (cm): <input type="number" id="heightSample1"></label>
                     <label>Poids (g): <input type="number" id="weightSample1"></label>
                 </div>
 
                 <div class="section" id="pelote2">
+                    <h3>Pelote 2 :</h3>
                     <label>Largeur (cm): <input type="number" id="widthSample2"></label>
                     <label>Hauteur (cm): <input type="number" id="heightSample2"></label>
                     <label>Poids (g): <input type="number" id="weightSample2"></label>
@@ -26,7 +28,7 @@
             <button id="addPeloteBtn" class="large">Ajouter une pelote</button>
         </div>
 
-        <div class="right-section">
+        <div class="middle-section">
             <h2>Calcul de la Laine</h2>
             <label>Largeur du Corps (cm): <input type="number" id="widthBody"></label>
             <label>Hauteur du Corps (cm): <input type="number" id="heightBody"></label>
@@ -36,11 +38,11 @@
             <label>Hauteur des Manches (cm): <input type="number" id="heightSleeve"></label>
 
             <button class="highlighted" onclick="calculateYarn()">Calculer</button>
+        </div>
 
-            <div class="results">
-                <h2>Résultats</h2>
-                <div id="resultsContainer"></div>
-            </div>
+        <div class="right-section">
+            <h2>Résultats</h2>
+            <div id="resultsContainer"></div>
         </div>
     </div>
 
