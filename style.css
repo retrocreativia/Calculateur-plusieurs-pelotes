@@ -83,6 +83,7 @@ button {
 button.large {
     padding: 12px 18px;
     font-size: 15px;
+    margin-top: 15px; /* Ajoute un espace au-dessus du bouton */
 }
 
 button.highlighted {
