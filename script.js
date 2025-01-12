@@ -23,7 +23,8 @@ document.getElementById('calculateBtn').addEventListener('click', () => {
     const heightSleeve = parseFloat(document.getElementById("heightSleeve").value);
 
     let resultsHTML = '';
-    
+
+    // Calculer pour chaque pelote en alternance
     for (let i = 1; i <= peloteCount; i++) {
         const widthSample = parseFloat(document.getElementById(`widthSample${i}`).value);
         const heightSample = parseFloat(document.getElementById(`heightSample${i}`).value);
@@ -33,9 +34,10 @@ document.getElementById('calculateBtn').addEventListener('click', () => {
             continue;
         }
 
-        const bodyWeight = (widthBody * heightBody) / (widthSample * heightSample) * weightSample;
-        const sleeveWeight = (widthSleeve * heightSleeve) / (widthSample * heightSample) * weightSample;
-        const totalWeight = (bodyWeight + sleeveWeight) / peloteCount; // Divise le poids pour équilibrer entre les pelotes
+        // Diviser les dimensions du pull par le nombre de pelotes (alternance)
+        const bodyWeight = ((widthBody / peloteCount) * heightBody) / (widthSample * heightSample) * weightSample;
+        const sleeveWeight = ((widthSleeve / peloteCount) * heightSleeve) / (widthSample * heightSample) * weightSample;
+        const totalWeight = bodyWeight + sleeveWeight;
 
         resultsHTML += `
             <div class="result-block">
