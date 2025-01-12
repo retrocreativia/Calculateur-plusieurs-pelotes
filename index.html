@@ -8,39 +8,35 @@
 </head>
 <body>
     <div class="container">
-        <div class="left-section">
+        <!-- Échantillons -->
+        <div class="section">
             <h2>Échantillons de Pelotes</h2>
             <div id="pelote-forms">
-                <div class="section" id="pelote1">
+                <div class="pelote-sample" id="pelote1">
                     <h3>Pelote 1 :</h3>
                     <label>Largeur (cm): <input type="number" id="widthSample1"></label>
                     <label>Hauteur (cm): <input type="number" id="heightSample1"></label>
                     <label>Poids (g): <input type="number" id="weightSample1"></label>
                 </div>
-
-                <div class="section" id="pelote2">
-                    <h3>Pelote 2 :</h3>
-                    <label>Largeur (cm): <input type="number" id="widthSample2"></label>
-                    <label>Hauteur (cm): <input type="number" id="heightSample2"></label>
-                    <label>Poids (g): <input type="number" id="weightSample2"></label>
-                </div>
             </div>
-            <button id="addPeloteBtn" class="large">Ajouter une pelote</button>
+            <button id="addPeloteBtn">Ajouter une pelote</button>
         </div>
 
-        <div class="middle-section framed-section">
-            <h2>Calcul de la Laine</h2>
+        <!-- Dimensions du projet -->
+        <div class="section">
+            <h2>Dimensions du Pull</h2>
             <label>Largeur du Corps (cm): <input type="number" id="widthBody"></label>
             <label>Hauteur du Corps (cm): <input type="number" id="heightBody"></label>
 
-            <h2>Dimensions des Manches (facultatif)</h2>
+            <h3>Dimensions des Manches (facultatif)</h3>
             <label>Largeur des Manches (cm): <input type="number" id="widthSleeve"></label>
             <label>Hauteur des Manches (cm): <input type="number" id="heightSleeve"></label>
 
-            <button class="highlighted" onclick="calculateYarn()">Calculer</button>
+            <button id="calculateBtn">Calculer</button>
         </div>
 
-        <div class="right-section">
+        <!-- Résultats -->
+        <div class="section">
             <h2>Résultats</h2>
             <div id="resultsContainer"></div>
         </div>
@@ -49,3 +45,4 @@
     <script src="script.js"></script>
 </body>
 </html>
+
