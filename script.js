@@ -1,9 +1,10 @@
-let peloteCount = 2;
+let peloteCount = 1;
 
+// Ajouter une nouvelle pelote dynamiquement
 document.getElementById('addPeloteBtn').addEventListener('click', () => {
     peloteCount++;
     const peloteForm = document.createElement('div');
-    peloteForm.classList.add('section');
+    peloteForm.classList.add('pelote-sample');
     peloteForm.id = `pelote${peloteCount}`;
     peloteForm.innerHTML = `
         <h3>Pelote ${peloteCount} :</h3>
@@ -14,14 +15,15 @@ document.getElementById('addPeloteBtn').addEventListener('click', () => {
     document.getElementById('pelote-forms').appendChild(peloteForm);
 });
 
-function calculateYarn() {
+// Calculer les résultats
+document.getElementById('calculateBtn').addEventListener('click', () => {
     const widthBody = parseFloat(document.getElementById("widthBody").value);
     const heightBody = parseFloat(document.getElementById("heightBody").value);
     const widthSleeve = parseFloat(document.getElementById("widthSleeve").value);
     const heightSleeve = parseFloat(document.getElementById("heightSleeve").value);
 
     let resultsHTML = '';
-
+    
     for (let i = 1; i <= peloteCount; i++) {
         const widthSample = parseFloat(document.getElementById(`widthSample${i}`).value);
         const heightSample = parseFloat(document.getElementById(`heightSample${i}`).value);
@@ -33,14 +35,16 @@ function calculateYarn() {
 
         const bodyWeight = (widthBody * heightBody) / (widthSample * heightSample) * weightSample;
         const sleeveWeight = (widthSleeve * heightSleeve) / (widthSample * heightSample) * weightSample;
-        const totalWeight = bodyWeight + sleeveWeight;
+        const totalWeight = (bodyWeight + sleeveWeight) / peloteCount; // Divise le poids pour équilibrer entre les pelotes
 
         resultsHTML += `
-            <p class="result-text">Poids de laine nécessaire pour le corps (Pelote ${i}): <span class="result-grammage">${bodyWeight.toFixed(2)} g</span></p>
-            <p class="result-text">Poids de laine nécessaire pour les manches (Pelote ${i}): <span class="result-grammage">${sleeveWeight.toFixed(2)} g</span></p>
-            <p class="result-text">Poids total de laine nécessaire (Pelote ${i}): <span class="result-grammage">${totalWeight.toFixed(2)} g</span></p>
+            <div class="result-block">
+                <p>Poids de laine nécessaire pour le corps (Pelote ${i}): <strong>${bodyWeight.toFixed(2)} g</strong></p>
+                <p>Poids de laine nécessaire pour les manches (Pelote ${i}): <strong>${sleeveWeight.toFixed(2)} g</strong></p>
+                <p>Poids total (Pelote ${i}): <strong>${totalWeight.toFixed(2)} g</strong></p>
+            </div>
         `;
     }
 
-    document.getElementById('resultsContainer').innerHTML = resultsHTML;
-}
+    document.getElementById('resultsContainer').innerHTML = resultsHTML || '<p>Aucune donnée valide pour le calcul.</p>';
+});
