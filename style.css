@@ -34,6 +34,18 @@ body {
     text-align: center;
 }
 
+.pelote-header {
+    display: inline-block;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    background-color: #d147a3; /* Fond rose */
+    color: white; /* Texte blanc */
+    font-weight: bold;
+    border-radius: 15px; /* Coins arrondis */
+    font-size: 1rem;
+    text-align: center;
+}
+
 label {
     font-weight: bold;
     color: #d147a3; /* Texte des labels en rose */
