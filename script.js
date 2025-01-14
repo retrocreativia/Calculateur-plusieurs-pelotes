@@ -39,13 +39,13 @@ document.getElementById('calculateBtn').addEventListener('click', () => {
 
         resultsHTML += `
             <div class="result-block">
-                <p>Poids de laine nécessaire pour le corps (Pelote ${i}): <strong>${bodyWeight.toFixed(2)} g</strong></p>
-                <p>Poids de laine nécessaire pour les manches (Pelote ${i}): <strong>${sleeveWeight.toFixed(2)} g</strong></p>
-                <p>Poids total (Pelote ${i}): <strong>${totalWeight.toFixed(2)} g</strong></p>
+                <div class="pelote-header">Pelote ${i}</div>
+                <p>Poids de laine nécessaire pour le corps : <strong>${bodyWeight.toFixed(2)} g</strong></p>
+                <p>Poids de laine nécessaire pour les manches : <strong>${sleeveWeight.toFixed(2)} g</strong></p>
+                <p>Poids total : <strong>${totalWeight.toFixed(2)} g</strong></p>
             </div>
         `;
     }
 
     document.getElementById('resultsContainer').innerHTML = resultsHTML || '<p>Aucune donnée valide pour le calcul.</p>';
 });
-
