@@ -48,5 +48,3 @@ document.getElementById('calculateBtn').addEventListener('click', () => {
 
     document.getElementById('resultsContainer').innerHTML = resultsHTML || '<p>Aucune donnée valide pour le calcul.</p>';
 });
-
-
