@@ -7,7 +7,7 @@ document.getElementById('addPeloteBtn').addEventListener('click', () => {
     peloteForm.classList.add('pelote-sample');
     peloteForm.id = `pelote${peloteCount}`;
     peloteForm.innerHTML = `
-        <h3>Pelote ${peloteCount} :</h3>
+        <div class="pelote-header">Pelote ${peloteCount} :</div>
         <label>Largeur (cm): <input type="number" id="widthSample${peloteCount}"></label>
         <label>Hauteur (cm): <input type="number" id="heightSample${peloteCount}"></label>
         <label>Poids (g): <input type="number" id="weightSample${peloteCount}"></label>
