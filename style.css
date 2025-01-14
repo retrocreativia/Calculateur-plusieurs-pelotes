@@ -29,7 +29,6 @@ body {
 
 .section h2 {
     font-size: 1.5rem;
-    text-transform: uppercase; /* Majuscules */
     color: #d147a3; /* Titres en rose */
     margin-bottom: 15px;
     text-align: center;
@@ -76,8 +75,9 @@ button:hover {
 .result-block {
     margin-bottom: 15px;
     padding: 10px;
-    border: none;
-    background: none;
+    border: 2px solid #d147a3;
+    border-radius: 5px;
+    background: #fff; /* Fond blanc */
 }
 
 .result-block p {
@@ -93,7 +93,8 @@ button:hover {
 #resultsContainer {
     padding: 10px;
     border-radius: 10px;
-    background: none;
+    background: #fff;
+    border: 2px solid #d147a3;
 }
 
 /* Style horizontal pour les écrans larges */
