@@ -22,8 +22,8 @@ body {
     border: 2px solid #d147a3;
     border-radius: 8px;
     padding: 15px;
-    background-color: #fff;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff; /* Fond blanc */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombre derrière les cadres */
     color: #d147a3; /* Texte en rose */
 }
 
@@ -110,3 +110,4 @@ button:hover {
         min-width: 30%;
     }
 }
+
