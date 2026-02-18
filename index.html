@@ -164,41 +164,35 @@ button{
   color:#a33a4a;
 }
 
-.choice-group{
-  border:1px solid var(--border);
-  border-radius:16px;
-  padding:12px;
-  background:#fffafb;
-  margin-top:12px;
-}
-
-.choice-title{
-  font-weight:800;
-  margin-bottom:10px;
-  font-size:14px;
-}
-
-.radio-row{
+/* Inline radio compact */
+.inline-choice{
   display:flex;
-  gap:14px;
+  align-items:center;
+  gap:12px;
   flex-wrap:wrap;
+  margin-top:14px;
+}
+
+.choice-label{
+  font-weight:700;
+  font-size:13px;
 }
 
 .radio-pill{
   display:flex;
   align-items:center;
-  gap:8px;
-  padding:10px 12px;
+  gap:6px;
+  padding:6px 12px;
   border:1px solid var(--border);
   border-radius:999px;
   background:#fff;
-  cursor:pointer;
   font-weight:700;
-  font-size:13px;
+  font-size:12px;
+  cursor:pointer;
 }
 
 .radio-pill input{
-  accent-color: var(--accent);
+  accent-color:var(--accent);
 }
 
 .bloc-info{
@@ -290,16 +284,18 @@ Bienvenue dans ton calculateur Napoli
 <input type="number" id="heightBody" step="0.1">
 </label>
 
-<div class="choice-group">
-<div class="choice-title">Type de modèle – Corps</div>
-<div class="radio-row">
+<div class="inline-choice">
+<span class="choice-label">Type modèle (corps)</span>
+
 <label class="radio-pill">
-<input type="radio" name="bodyShape" value="droit" checked> Droit (+20g)
+<input type="radio" name="bodyShape" value="droit" checked>
+Droit
 </label>
+
 <label class="radio-pill">
-<input type="radio" name="bodyShape" value="evase"> Évasé (+50g)
+<input type="radio" name="bodyShape" value="evase">
+Évasé
 </label>
-</div>
 </div>
 
 <h2 style="margin-top:18px;">Manches (facultatif)</h2>
@@ -312,16 +308,18 @@ Bienvenue dans ton calculateur Napoli
 <input type="number" id="heightSleeve" step="0.1">
 </label>
 
-<div class="choice-group">
-<div class="choice-title">Type de modèle – Manches</div>
-<div class="radio-row">
+<div class="inline-choice">
+<span class="choice-label">Type modèle (manches)</span>
+
 <label class="radio-pill">
-<input type="radio" name="sleeveShape" value="droit" checked> Droit (+20g)
+<input type="radio" name="sleeveShape" value="droit" checked>
+Droit
 </label>
+
 <label class="radio-pill">
-<input type="radio" name="sleeveShape" value="evase"> Évasé (+50g)
+<input type="radio" name="sleeveShape" value="evase">
+Évasé
 </label>
-</div>
 </div>
 
 <button id="calculateBtn">Calculer</button>
@@ -341,7 +339,7 @@ Bienvenue dans ton calculateur Napoli
 <div class="mini-title">Comment ça marche ?</div>
 
 <p>
-Ce calculateur va te permettre de connaître la <strong>quantité de laine nécessaire pour ton ouvrage</strong>, avec <strong>une ou plusieurs pelotes</strong>.
+Ce calculateur te permet de connaître la <strong>quantité de laine nécessaire pour ton ouvrage</strong>, avec <strong>une ou plusieurs pelotes</strong>.
 </p>
 
 <ul>
@@ -357,7 +355,7 @@ Si tu changes de couleur toutes les <strong>3 rangées</strong>, pèse un échan
 
 <p style="margin-top:20px;">
 <strong>Et ensuite le calcul se fait tout seul.</strong>
-Tu obtiens la <strong>quantité estimée pour chaque pelote</strong>, en grammes.
+Tu obtiens la quantité estimée pour chaque pelote, en grammes.
 </p>
 </div>
 
@@ -368,13 +366,13 @@ Tu obtiens la <strong>quantité estimée pour chaque pelote</strong>, en grammes
 let peloteCount = 1;
 
 function getRadioValue(name){
-const el = document.querySelector(`input[name="${name}"]:checked`);
-return el ? el.value : "droit";
+const el=document.querySelector(`input[name="${name}"]:checked`);
+return el?el.value:"droit";
 }
 
 function safeNum(id){
-const v = parseFloat(document.getElementById(id).value);
-return Number.isFinite(v) ? v : NaN;
+const v=parseFloat(document.getElementById(id).value);
+return Number.isFinite(v)?v:NaN;
 }
 
 document.getElementById('addPeloteBtn').addEventListener('click',()=>{
