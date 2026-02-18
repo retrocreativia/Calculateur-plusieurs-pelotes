@@ -1,124 +1,18 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f7f7f7;
-    margin: 0;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
+.hint{
+  font-weight:500;
+  font-size:12px;
+  opacity:.55;
+  margin-left:6px;
 }
 
-.container {
-    display: flex;
-    flex-direction: column; /* Vertical par défaut */
-    gap: 20px; /* Espacement entre les cadres */
-    width: 100%;
-    max-width: 1200px;
-    margin: auto;
+.btn-secondary{
+  margin-top:10px;
+  background:#ffffff;
+  color:var(--accent2);
+  border:1px solid var(--border);
 }
 
-.section {
-    border: 2px solid #d147a3;
-    border-radius: 8px;
-    padding: 15px;
-    background-color: #fff; /* Fond blanc */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombre derrière les cadres */
-    color: #d147a3; /* Texte en rose */
-}
-
-.section h2 {
-    font-size: 1.5rem;
-    color: #d147a3; /* Titres en rose */
-    margin-bottom: 15px;
-    text-align: center;
-}
-
-.pelote-header {
-    display: inline-block;
-    padding: 5px 10px;
-    margin-bottom: 10px;
-    background-color: #d147a3; /* Fond rose */
-    color: white; /* Texte blanc */
-    font-weight: bold;
-    border-radius: 15px; /* Coins arrondis */
-    font-size: 1rem;
-    text-align: center;
-}
-
-label {
-    font-weight: bold;
-    color: #d147a3; /* Texte des labels en rose */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-input {
-    width: 60%;
-    padding: 8px;
-    margin-left: 10px;
-    border: 1px solid #d147a3;
-    border-radius: 5px;
-    box-sizing: border-box;
-    font-size: 0.9rem;
-    font-weight: bold;
-    color: #d147a3; /* Texte dans les champs en rose */
-}
-
-button {
-    padding: 12px 20px;
-    background: #d147a3;
-    color: white;
-    font-size: 1rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    align-self: center;
-    margin-top: 15px;
-    transition: background 0.3s;
-}
-
-button:hover {
-    background: #b8378a;
-}
-
-.result-block {
-    margin-bottom: 15px;
-    padding: 10px;
-    border: 2px solid #d147a3;
-    border-radius: 5px;
-    background: #fff; /* Fond blanc */
-}
-
-.result-block p {
-    margin: 5px 0;
-    font-size: 1rem;
-    color: #d147a3; /* Texte des résultats en rose */
-}
-
-.result-block p strong {
-    color: #4CAF50; /* Valeurs des résultats en vert */
-}
-
-#resultsContainer {
-    padding: 10px;
-    border-radius: 10px;
-    background: #fff;
-    border: 2px solid #d147a3;
-}
-
-/* Style horizontal pour les écrans larges */
-@media (min-width: 768px) {
-    .container {
-        flex-direction: row;
-        gap: 20px;
-        justify-content: space-between;
-    }
-
-    .section {
-        flex: 1;
-        min-width: 30%;
-    }
+.btn-secondary:hover{
+  transform:translateY(-2px);
+  background:#fff7f8;
 }
