@@ -153,6 +153,7 @@ button{
 .choice-label{
   font-weight:700;
   font-size:13px;
+  white-space:nowrap;
 }
 
 .radio-pill{
@@ -166,6 +167,7 @@ button{
   font-weight:700;
   font-size:12px;
   cursor:pointer;
+  white-space:nowrap;
 }
 
 .radio-pill input{
@@ -194,15 +196,16 @@ button{
   color:var(--success);
 }
 
+/* Encadré marge en vert pâle */
 .marge-box{
-  background:#fff2f5;
-  border:1px solid var(--border);
+  background:#eaf8f0;
+  border:1px solid #c8ead6;
   padding:10px 14px;
   border-radius:12px;
   margin-top:8px;
   font-size:13px;
   font-weight:600;
-  color:#a33a4a;
+  color:#2f9e60;
 }
 
 /* Bloc info */
@@ -243,196 +246,231 @@ button{
 
 <body>
 <div class="container">
-<div class="card">
+  <div class="card">
 
-<h1>Calculateur – Plusieurs pelotes</h1>
+    <h1>Calculateur – Plusieurs pelotes</h1>
 
-<div class="bloc-welcome">
-Bienvenue dans ton calculateur Napoli
-</div>
+    <div class="bloc-welcome">
+      Bienvenue dans ton calculateur Napoli
+    </div>
 
-<div class="layout">
+    <div class="layout">
 
-<!-- SECTION 1 -->
-<div class="section">
-<h2>Mesures et poids de l'échantillon</h2>
+      <!-- SECTION 1 -->
+      <div class="section">
+        <h2>Mesures et poids de l'échantillon</h2>
 
-<div id="pelote-forms">
-<div class="pelote-sample" id="pelote1">
-<div class="pelote-header">Pelote 1</div>
+        <div id="pelote-forms">
+          <div class="pelote-sample" id="pelote1">
+            <div class="pelote-header">Pelote 1</div>
 
-<label>Largeur (cm)
-<input type="number" id="widthSample1" step="0.1">
-</label>
+            <label>Largeur (cm)
+              <input type="number" id="widthSample1" step="0.1">
+            </label>
 
-<label>Hauteur (cm)
-<input type="number" id="heightSample1" step="0.1">
-</label>
+            <label>Hauteur (cm)
+              <input type="number" id="heightSample1" step="0.1">
+            </label>
 
-<label>Poids (g)
-<input type="number" id="weightSample1" step="0.1">
-</label>
-</div>
-</div>
+            <label>Poids (g)
+              <input type="number" id="weightSample1" step="0.1">
+            </label>
+          </div>
+        </div>
 
-<button id="addPeloteBtn">Ajouter une pelote</button>
-</div>
+        <button id="addPeloteBtn">Ajouter une pelote</button>
+      </div>
 
-<!-- SECTION 2 -->
-<div class="section">
-<h2>Dimensions de l'ouvrage</h2>
+      <!-- SECTION 2 -->
+      <div class="section">
+        <h2>Dimensions de l'ouvrage</h2>
 
-<label>Largeur du corps (cm)
-<input type="number" id="widthBody" step="0.1">
-</label>
+        <label>Largeur du corps (cm)
+          <input type="number" id="widthBody" step="0.1">
+        </label>
 
-<label>Hauteur du corps (cm)
-<input type="number" id="heightBody" step="0.1">
-</label>
+        <label>Hauteur du corps (cm)
+          <input type="number" id="heightBody" step="0.1">
+        </label>
 
-<div class="inline-choice">
-<span class="choice-label">Type modèle (corps)</span>
+        <div class="inline-choice">
+          <span class="choice-label">Type modèle (corps)</span>
 
-<label class="radio-pill">
-<input type="radio" name="bodyShape" value="droit" checked>
-Droit
-</label>
+          <label class="radio-pill">
+            <input type="radio" name="bodyShape" value="droit" checked>
+            Droit
+          </label>
 
-<label class="radio-pill">
-<input type="radio" name="bodyShape" value="evase">
-Évasé
-</label>
-</div>
+          <label class="radio-pill">
+            <input type="radio" name="bodyShape" value="evase">
+            Évasé
+          </label>
+        </div>
 
-<h2 style="margin-top:20px;">Manches (facultatif)</h2>
+        <h2 style="margin-top:20px;">Manches (facultatif)</h2>
 
-<label>Largeur des manches (cm)
-<input type="number" id="widthSleeve" step="0.1">
-</label>
+        <label>Largeur des manches (cm)
+          <input type="number" id="widthSleeve" step="0.1">
+        </label>
 
-<label>Hauteur des manches (cm)
-<input type="number" id="heightSleeve" step="0.1">
-</label>
+        <label>Hauteur des manches (cm)
+          <input type="number" id="heightSleeve" step="0.1">
+        </label>
 
-<div class="inline-choice">
-<span class="choice-label">Type modèle (manches)</span>
+        <div class="inline-choice">
+          <span class="choice-label">Type modèle (manches)</span>
 
-<label class="radio-pill">
-<input type="radio" name="sleeveShape" value="droit" checked>
-Droit
-</label>
+          <label class="radio-pill">
+            <input type="radio" name="sleeveShape" value="droit" checked>
+            Droit
+          </label>
 
-<label class="radio-pill">
-<input type="radio" name="sleeveShape" value="evase">
-Évasé
-</label>
-</div>
+          <label class="radio-pill">
+            <input type="radio" name="sleeveShape" value="evase">
+            Évasé
+          </label>
+        </div>
 
-<button id="calculateBtn">Calculer</button>
-<button id="resetBtn" class="btn-secondary">Réinitialiser</button>
-</div>
+        <button id="calculateBtn">Calculer</button>
+        <button id="resetBtn" class="btn-secondary">Réinitialiser</button>
+      </div>
 
-<!-- SECTION 3 -->
-<div class="section">
-<h2>Résultats</h2>
-<div id="resultsContainer" class="results"></div>
-</div>
+      <!-- SECTION 3 -->
+      <div class="section">
+        <h2>Résultats</h2>
+        <div id="resultsContainer" class="results"></div>
+      </div>
 
-</div>
+    </div>
 
-</div>
+    <!-- COMMENT ÇA MARCHE (comme avant) -->
+    <div class="bloc-info">
+      <div class="mini-title">Comment ça marche ?</div>
+
+      <p>
+        Ce calculateur va te permettre de connaître la <strong>quantité de laine nécessaire pour ton ouvrage</strong>, avec <strong>une ou plusieurs pelotes</strong>.
+      </p>
+
+      <ul>
+        <li><strong>les dimensions + le poids de l’échantillon</strong> de chaque pelote,</li>
+        <li><strong>les dimensions du corps</strong>,</li>
+        <li><strong>les dimensions des manches</strong> (facultatif).</li>
+      </ul>
+
+      <div class="bloc-exemple">
+        <strong>Exemple :</strong><br>
+        Si tu changes de couleur toutes les <strong>3 rangées</strong>, pèse un échantillon de <strong>3 rangées</strong>, puis renseigne son poids et ses dimensions.
+      </div>
+
+      <p style="margin-top:20px;">
+        <strong>Note :</strong> le calcul suppose une répartition uniforme entre tes couleurs (ex : 2 couleurs ≈ 50/50).
+      </p>
+
+      <p style="margin-top:10px;">
+        <strong>Et ensuite le calcul se fait tout seul.</strong>
+        Tu obtiens la quantité estimée pour chaque pelote, en grammes.
+      </p>
+    </div>
+
+  </div>
 </div>
 
 <script>
 let peloteCount = 1;
 
 function getRadioValue(name){
-const el=document.querySelector(`input[name="${name}"]:checked`);
-return el?el.value:"droit";
+  const el = document.querySelector(`input[name="${name}"]:checked`);
+  return el ? el.value : "droit";
 }
 
 function safeNum(id){
-const v=parseFloat(document.getElementById(id).value);
-return Number.isFinite(v)?v:NaN;
+  const v = parseFloat(document.getElementById(id).value);
+  return Number.isFinite(v) ? v : NaN;
 }
 
-document.getElementById('addPeloteBtn').addEventListener('click',()=>{
-peloteCount++;
-const peloteForm=document.createElement('div');
-peloteForm.classList.add('pelote-sample');
-peloteForm.id=`pelote${peloteCount}`;
-peloteForm.innerHTML=`
-<div class="pelote-header">Pelote ${peloteCount}</div>
-<label>Largeur (cm)<input type="number" id="widthSample${peloteCount}" step="0.1"></label>
-<label>Hauteur (cm)<input type="number" id="heightSample${peloteCount}" step="0.1"></label>
-<label>Poids (g)<input type="number" id="weightSample${peloteCount}" step="0.1"></label>
-`;
-document.getElementById('pelote-forms').appendChild(peloteForm);
+document.getElementById('addPeloteBtn').addEventListener('click', () => {
+  peloteCount++;
+  const peloteForm = document.createElement('div');
+  peloteForm.classList.add('pelote-sample');
+  peloteForm.id = `pelote${peloteCount}`;
+  peloteForm.innerHTML = `
+    <div class="pelote-header">Pelote ${peloteCount}</div>
+    <label>Largeur (cm)<input type="number" id="widthSample${peloteCount}" step="0.1"></label>
+    <label>Hauteur (cm)<input type="number" id="heightSample${peloteCount}" step="0.1"></label>
+    <label>Poids (g)<input type="number" id="weightSample${peloteCount}" step="0.1"></label>
+  `;
+  document.getElementById('pelote-forms').appendChild(peloteForm);
 });
 
-document.getElementById('resetBtn').addEventListener('click',()=>location.reload());
+document.getElementById('resetBtn').addEventListener('click', () => location.reload());
 
-document.getElementById('calculateBtn').addEventListener('click',()=>{
-const widthBody=safeNum("widthBody");
-const heightBody=safeNum("heightBody");
-const widthSleeve=safeNum("widthSleeve");
-const heightSleeve=safeNum("heightSleeve");
+document.getElementById('calculateBtn').addEventListener('click', () => {
+  const widthBody = safeNum("widthBody");
+  const heightBody = safeNum("heightBody");
+  const widthSleeve = safeNum("widthSleeve");
+  const heightSleeve = safeNum("heightSleeve");
 
-const bodyShape=getRadioValue("bodyShape");
-const sleeveShape=getRadioValue("sleeveShape");
+  const bodyShape = getRadioValue("bodyShape");
+  const sleeveShape = getRadioValue("sleeveShape");
 
-let resultsHTML='';
-let hasValidData=false;
+  let resultsHTML = '';
+  let hasValidData = false;
 
-for(let i=1;i<=peloteCount;i++){
-const widthSample=parseFloat(document.getElementById(`widthSample${i}`).value);
-const heightSample=parseFloat(document.getElementById(`heightSample${i}`).value);
-const weightSample=parseFloat(document.getElementById(`weightSample${i}`).value);
+  for(let i = 1; i <= peloteCount; i++){
+    const widthSample = parseFloat(document.getElementById(`widthSample${i}`).value);
+    const heightSample = parseFloat(document.getElementById(`heightSample${i}`).value);
+    const weightSample = parseFloat(document.getElementById(`weightSample${i}`).value);
 
-if(!Number.isFinite(widthSample)||!Number.isFinite(heightSample)||!Number.isFinite(weightSample)||widthSample<=0||heightSample<=0) continue;
+    if(!Number.isFinite(widthSample) || !Number.isFinite(heightSample) || !Number.isFinite(weightSample) || widthSample <= 0 || heightSample <= 0){
+      continue;
+    }
 
-let bodyWeight=0;
-if(Number.isFinite(widthBody)&&Number.isFinite(heightBody)){
-bodyWeight=((widthBody/peloteCount)*heightBody)/(widthSample*heightSample)*weightSample;
-}
+    let bodyWeight = 0;
+    if(Number.isFinite(widthBody) && Number.isFinite(heightBody)){
+      bodyWeight = ((widthBody / peloteCount) * heightBody) / (widthSample * heightSample) * weightSample;
+    }
 
-let sleeveWeight=0;
-if(Number.isFinite(widthSleeve)&&Number.isFinite(heightSleeve)){
-sleeveWeight=((widthSleeve/peloteCount)*heightSleeve)/(widthSample*heightSample)*weightSample;
-}
+    let sleeveWeight = 0;
+    if(Number.isFinite(widthSleeve) && Number.isFinite(heightSleeve)){
+      sleeveWeight = ((widthSleeve / peloteCount) * heightSleeve) / (widthSample * heightSample) * weightSample;
+    }
 
-const totalWeight=bodyWeight+sleeveWeight;
-if(totalWeight<=0) continue;
+    const totalWeight = bodyWeight + sleeveWeight;
+    if(totalWeight <= 0) continue;
 
-let marge=0;
-if(bodyShape==="droit") marge+=20;
-if(bodyShape==="evase") marge+=50;
-if(sleeveShape==="droit") marge+=20;
-if(sleeveShape==="evase") marge+=50;
+    let marge = 0;
+    if(bodyShape === "droit") marge += 20;
+    if(bodyShape === "evase") marge += 50;
+    if(sleeveShape === "droit") marge += 20;
+    if(sleeveShape === "evase") marge += 50;
 
-const totalAvecMarge=totalWeight+marge;
+    const totalAvecMarge = totalWeight + marge;
 
-hasValidData=true;
+    // Ne pas afficher "Manches" si 0
+    let manchesHTML = "";
+    if(sleeveWeight > 0){
+      manchesHTML = `<p>Manches : <strong>${sleeveWeight.toFixed(2)} g</strong></p>`;
+    }
 
-resultsHTML+=`
-<div class="result-block">
-<div class="pelote-header">Pelote ${i}</div>
-<p>Corps : <strong>${bodyWeight.toFixed(2)} g</strong></p>
-<p>Manches : <strong>${sleeveWeight.toFixed(2)} g</strong></p>
-<p>Total calculé : <strong>${totalWeight.toFixed(2)} g</strong></p>
-<div class="marge-box">Marge ajoutée : ${marge.toFixed(0)} g</div>
-<p style="margin-top:10px;">Total conseillé : <strong>${totalAvecMarge.toFixed(2)} g</strong></p>
-</div>
-`;
-}
+    hasValidData = true;
 
-const container=document.getElementById('resultsContainer');
-container.style.display="block";
-container.innerHTML=hasValidData?resultsHTML:`<div class="result-block"><p>Aucune donnée valide pour le calcul.</p></div>`;
+    resultsHTML += `
+      <div class="result-block">
+        <div class="pelote-header">Pelote ${i}</div>
+        <p>Corps : <strong>${bodyWeight.toFixed(2)} g</strong></p>
+        ${manchesHTML}
+        <p>Total calculé : <strong>${totalWeight.toFixed(2)} g</strong></p>
+        <div class="marge-box">Marge ajoutée : ${marge.toFixed(0)} g</div>
+        <p style="margin-top:10px;">Total conseillé : <strong>${totalAvecMarge.toFixed(2)} g</strong></p>
+      </div>
+    `;
+  }
+
+  const container = document.getElementById('resultsContainer');
+  container.style.display = "block";
+  container.innerHTML = hasValidData ? resultsHTML : `<div class="result-block"><p>Aucune donnée valide pour le calcul.</p></div>`;
 });
 </script>
 
 </body>
-</html>
-
 </html>
