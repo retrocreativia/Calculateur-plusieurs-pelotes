@@ -191,9 +191,10 @@
       font-weight:800;
     }
 
+    /* Bloc explicatif */
     .bloc-info{
       background:var(--info);
-      padding:22px;
+      padding:24px;
       border-radius:18px;
       margin-top:35px;
       line-height:1.6;
@@ -208,6 +209,29 @@
 
     .bloc-info li{
       margin-bottom:6px;
+    }
+
+    .mini-title{
+      background:var(--accent);
+      color:#fff;
+      padding:10px 18px;
+      border-radius:999px;
+      text-align:center;
+      font-weight:700;
+      margin-bottom:18px;
+      width:fit-content;
+      margin-left:auto;
+      margin-right:auto;
+    }
+
+    .bloc-exemple{
+      background:var(--accent);
+      color:#fff;
+      padding:16px;
+      border-radius:16px;
+      margin-top:12px;
+      font-size:14px;
+      line-height:1.6;
     }
 
     @media (min-width: 900px){
@@ -287,6 +311,10 @@
 
       <div class="bloc-info">
 
+        <div class="mini-title">
+          Comment ça marche ?
+        </div>
+
         <p>
           Ce calculateur va te permettre de connaître la <strong>quantité de laine nécessaire pour ton ouvrage</strong>,
           avec <strong>une ou plusieurs pelotes</strong>, notamment si tu fais des <strong>changements de couleurs</strong>.
@@ -300,12 +328,14 @@
           <li><strong>les dimensions des manches</strong> (facultatif).</li>
         </ul>
 
-        <p>
-          <strong>Exemple :</strong> si tu changes de couleur toutes les <strong>3 rangées</strong>,
-          pèse un échantillon de <strong>3 rangées</strong>, puis renseigne son poids et ses dimensions.
-        </p>
+        <div class="bloc-exemple">
+          <strong>Exemple :</strong><br>
+          Si tu changes de couleur toutes les <strong>3 rangées</strong>,
+          pèse un échantillon de <strong>3 rangées</strong>,
+          puis renseigne son poids et ses dimensions.
+        </div>
 
-        <p>
+        <p style="margin-top:20px;">
           <strong>Et ensuite le calcul se fait tout seul.</strong>
           Tu obtiens la <strong>quantité estimée pour chaque pelote</strong>, en grammes.
         </p>
