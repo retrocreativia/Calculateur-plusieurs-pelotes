@@ -1,49 +1,102 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculateur de Laine</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculateur – Plusieurs pelotes</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-    <div class="container">
-        <!-- Section 1 : Informations sur l'échantillon -->
+  <div class="container">
+    <div class="card">
+
+      <h1>Calculateur – Plusieurs pelotes</h1>
+
+      <div class="bloc-welcome">
+        ✨ Bienvenue dans ton calculateur Napoli !
+      </div>
+
+      <div class="bloc-info">
+        Cet outil t’aide à répartir la quantité de laine nécessaire entre plusieurs pelotes.
+        <br><br>
+        🧶 <strong>Rentre simplement :</strong>
+        <ul>
+          <li>les dimensions + le poids de l’échantillon de chaque pelote,</li>
+          <li>les dimensions du corps,</li>
+          <li>les dimensions des manches <span class="hint">(facultatif)</span>.</li>
+        </ul>
+
+        <p>
+          <strong>Et ensuite le calcul se fait tout seul.</strong>
+          Tu obtiens la quantité de laine estimée pour chaque pelote, en grammes.
+        </p>
+      </div>
+
+      <div class="layout">
+        <!-- SECTION 1 -->
         <div class="section">
-            <h2>Mesures et poids de l'échantillon de tes pelotes</h2>
-            <div id="pelote-forms">
-                <div class="pelote-sample" id="pelote1">
-                    <div class="pelote-header">Pelote 1 :</div>
-                    <label>Largeur (cm): <input type="number" id="widthSample1"></label>
-                    <label>Hauteur (cm): <input type="number" id="heightSample1"></label>
-                    <label>Poids (g): <input type="number" id="weightSample1"></label>
-                </div>
+          <h2>Mesures et poids de l'échantillon de tes pelotes</h2>
+
+          <div id="pelote-forms">
+            <div class="pelote-sample" id="pelote1">
+              <div class="pelote-header">Pelote 1</div>
+
+              <label>Largeur (cm)
+                <input type="number" id="widthSample1" step="0.1" />
+              </label>
+
+              <label>Hauteur (cm)
+                <input type="number" id="heightSample1" step="0.1" />
+              </label>
+
+              <label>Poids (g)
+                <input type="number" id="weightSample1" step="0.1" />
+              </label>
             </div>
-            <button id="addPeloteBtn">Ajouter une pelote</button>
+          </div>
+
+          <button id="addPeloteBtn" type="button">Ajouter une pelote</button>
         </div>
 
-        <!-- Section 2 : Dimensions de l'ouvrage -->
+        <!-- SECTION 2 -->
         <div class="section">
-            <h2>Dimensions de ton ouvrage : top, pull ou robe</h2>
-            <label>Largeur du Corps (cm): <input type="number" id="widthBody"></label>
-            <label>Hauteur du Corps (cm): <input type="number" id="heightBody"></label>
+          <h2>Dimensions de ton ouvrage : top, pull ou robe</h2>
 
-            <h2>Dimensions des manches (facultatif)</h2>
-            <label>Largeur des Manches (cm): <input type="number" id="widthSleeve"></label>
-            <label>Hauteur des Manches (cm): <input type="number" id="heightSleeve"></label>
+          <label>Largeur du corps (cm)
+            <input type="number" id="widthBody" step="0.1" />
+          </label>
 
-            <button id="calculateBtn">Calculer</button>
+          <label>Hauteur du corps (cm)
+            <input type="number" id="heightBody" step="0.1" />
+          </label>
+
+          <h2 class="subhead">
+            Dimensions des manches <span class="hint">(facultatif)</span>
+          </h2>
+
+          <label>Largeur des manches (cm) <span class="hint">(facultatif)</span>
+            <input type="number" id="widthSleeve" step="0.1" />
+          </label>
+
+          <label>Hauteur des manches (cm) <span class="hint">(facultatif)</span>
+            <input type="number" id="heightSleeve" step="0.1" />
+          </label>
+
+          <button id="calculateBtn" type="button">Calculer</button>
+          <button id="resetBtn" type="button" class="btn-secondary">Réinitialiser</button>
         </div>
 
-        <!-- Section 3 : Résultats -->
+        <!-- SECTION 3 -->
         <div class="section">
-            <h2>Résultats</h2>
-            <div id="resultsContainer"></div>
+          <h2>Résultats</h2>
+          <div id="resultsContainer" class="results"></div>
         </div>
+      </div>
+
     </div>
+  </div>
 
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
-
-
