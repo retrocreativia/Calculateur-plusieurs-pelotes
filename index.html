@@ -47,35 +47,20 @@
 
     h1{
       text-align:center;
-      margin:0 0 24px;
+      margin:0 0 20px;
       font-size:26px;
       font-weight:700;
     }
 
-    .bloc-info{
-      background:var(--info);
-      padding:22px;
+    .bloc-welcome{
+      background:var(--accent);
+      color:#fff;
+      padding:18px;
       border-radius:18px;
-      margin-bottom:26px;
-      line-height:1.6;
-      border:1px solid var(--border);
+      font-weight:600;
+      margin-bottom:30px;
+      text-align:center;
       font-size:15px;
-    }
-
-    .bloc-info ul{
-      margin:10px 0 18px;
-      padding-left:20px;
-    }
-
-    .bloc-info li{
-      margin-bottom:6px;
-    }
-
-    .hint{
-      font-weight:500;
-      font-size:12px;
-      opacity:.55;
-      margin-left:6px;
     }
 
     .layout{
@@ -206,6 +191,25 @@
       font-weight:800;
     }
 
+    .bloc-info{
+      background:var(--info);
+      padding:22px;
+      border-radius:18px;
+      margin-top:35px;
+      line-height:1.6;
+      border:1px solid var(--border);
+      font-size:15px;
+    }
+
+    .bloc-info ul{
+      margin:10px 0 18px;
+      padding-left:20px;
+    }
+
+    .bloc-info li{
+      margin-bottom:6px;
+    }
+
     @media (min-width: 900px){
       .layout{
         flex-direction:row;
@@ -222,133 +226,93 @@
 
       <h1>Calculateur – Plusieurs pelotes</h1>
 
+      <div class="bloc-welcome">
+        Bienvenue dans ton calculateur Napoli
+      </div>
+
+      <div class="layout">
+
+        <div class="section">
+          <h2>Mesures et poids de l'échantillon de tes pelotes</h2>
+
+          <div class="pelote-sample">
+            <div class="pelote-header">Pelote 1</div>
+
+            <label>Largeur (cm)
+              <input type="number" />
+            </label>
+
+            <label>Hauteur (cm)
+              <input type="number" />
+            </label>
+
+            <label>Poids (g)
+              <input type="number" />
+            </label>
+          </div>
+
+          <button>Ajouter une pelote</button>
+        </div>
+
+        <div class="section">
+          <h2>Dimensions de ton ouvrage : top, pull ou robe</h2>
+
+          <label>Largeur du corps (cm)
+            <input type="number" />
+          </label>
+
+          <label>Hauteur du corps (cm)
+            <input type="number" />
+          </label>
+
+          <h2 class="subhead">Dimensions des manches (facultatif)</h2>
+
+          <label>Largeur des manches (cm)
+            <input type="number" />
+          </label>
+
+          <label>Hauteur des manches (cm)
+            <input type="number" />
+          </label>
+
+          <button>Calculer</button>
+          <button class="btn-secondary">Réinitialiser</button>
+        </div>
+
+        <div class="section">
+          <h2>Résultats</h2>
+        </div>
+
+      </div>
+
       <div class="bloc-info">
 
         <p>
-          Cet outil t’aide à connaître la quantité de laine nécessaire pour une ou plusieurs pelotes,
-          notamment si tu fais des changements de couleurs dans ton ouvrage.
+          Ce calculateur va te permettre de connaître la <strong>quantité de laine nécessaire pour ton ouvrage</strong>,
+          avec <strong>une ou plusieurs pelotes</strong>, notamment si tu fais des <strong>changements de couleurs</strong>.
         </p>
 
         <p><strong>🧶 Rentre simplement :</strong></p>
 
         <ul>
-          <li>les dimensions + le poids de l’échantillon de chaque pelote,</li>
-          <li>les dimensions du corps,</li>
-          <li>les dimensions des manches <span class="hint">(facultatif)</span>.</li>
+          <li><strong>les dimensions + le poids de l’échantillon</strong> de chaque pelote,</li>
+          <li><strong>les dimensions du corps</strong>,</li>
+          <li><strong>les dimensions des manches</strong> (facultatif).</li>
         </ul>
 
         <p>
-          Si tu changes de couleur toutes les 3 rangées par exemple, pèse un échantillon de 3 rangées,
-          puis renseigne son poids et ses dimensions.
+          <strong>Exemple :</strong> si tu changes de couleur toutes les <strong>3 rangées</strong>,
+          pèse un échantillon de <strong>3 rangées</strong>, puis renseigne son poids et ses dimensions.
         </p>
 
         <p>
           <strong>Et ensuite le calcul se fait tout seul.</strong>
-          Tu obtiens la quantité de laine estimée pour chaque pelote, en grammes.
+          Tu obtiens la <strong>quantité estimée pour chaque pelote</strong>, en grammes.
         </p>
-
-      </div>
-
-      <div class="layout">
-
-        <!-- SECTION 1 -->
-        <div class="section">
-          <h2>Mesures et poids de l'échantillon de tes pelotes</h2>
-
-          <div id="pelote-forms">
-            <div class="pelote-sample" id="pelote1">
-              <div class="pelote-header">Pelote 1</div>
-
-              <label>Largeur (cm)
-                <input type="number" id="widthSample1" step="0.1" />
-              </label>
-
-              <label>Hauteur (cm)
-                <input type="number" id="heightSample1" step="0.1" />
-              </label>
-
-              <label>Poids (g)
-                <input type="number" id="weightSample1" step="0.1" />
-              </label>
-            </div>
-          </div>
-
-          <button id="addPeloteBtn" type="button">Ajouter une pelote</button>
-        </div>
-
-        <!-- SECTION 2 -->
-        <div class="section">
-          <h2>Dimensions de ton ouvrage : top, pull ou robe</h2>
-
-          <label>Largeur du corps (cm)
-            <input type="number" id="widthBody" step="0.1" />
-          </label>
-
-          <label>Hauteur du corps (cm)
-            <input type="number" id="heightBody" step="0.1" />
-          </label>
-
-          <h2 class="subhead">
-            Dimensions des manches <span class="hint">(facultatif)</span>
-          </h2>
-
-          <label>Largeur des manches (cm)
-            <input type="number" id="widthSleeve" step="0.1" />
-          </label>
-
-          <label>Hauteur des manches (cm)
-            <input type="number" id="heightSleeve" step="0.1" />
-          </label>
-
-          <button id="calculateBtn" type="button">Calculer</button>
-          <button id="resetBtn" type="button" class="btn-secondary">Réinitialiser</button>
-        </div>
-
-        <!-- SECTION 3 -->
-        <div class="section">
-          <h2>Résultats</h2>
-          <div id="resultsContainer" class="results"></div>
-        </div>
 
       </div>
 
     </div>
   </div>
-
-  <script>
-    let peloteCount = 1;
-
-    document.getElementById('addPeloteBtn').addEventListener('click', () => {
-      peloteCount++;
-      const peloteForm = document.createElement('div');
-      peloteForm.classList.add('pelote-sample');
-      peloteForm.id = `pelote${peloteCount}`;
-
-      peloteForm.innerHTML = `
-        <div class="pelote-header">Pelote ${peloteCount}</div>
-        <label>Largeur (cm)
-          <input type="number" id="widthSample${peloteCount}" step="0.1" />
-        </label>
-        <label>Hauteur (cm)
-          <input type="number" id="heightSample${peloteCount}" step="0.1" />
-        </label>
-        <label>Poids (g)
-          <input type="number" id="weightSample${peloteCount}" step="0.1" />
-        </label>
-      `;
-      document.getElementById('pelote-forms').appendChild(peloteForm);
-    });
-
-    document.getElementById('resetBtn').addEventListener('click', () => {
-      location.reload();
-    });
-
-    document.getElementById('calculateBtn').addEventListener('click', () => {
-      const container = document.getElementById('resultsContainer');
-      container.style.display = "block";
-      container.innerHTML = "<div class='result-block'><p>Résultats affichés ici.</p></div>";
-    });
-  </script>
-
 </body>
 </html>
