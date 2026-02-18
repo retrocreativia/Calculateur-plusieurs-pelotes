@@ -52,36 +52,30 @@
       font-weight:700;
     }
 
-    .bloc-welcome{
-      background:var(--accent);
-      color:#fff;
-      padding:18px;
-      border-radius:18px;
-      font-weight:600;
-      margin-bottom:18px;
-      text-align:center;
-    }
-
     .bloc-info{
       background:var(--info);
-      padding:24px;
+      padding:22px;
       border-radius:18px;
       margin-bottom:26px;
-      line-height:1.7;
+      line-height:1.6;
       border:1px solid var(--border);
       font-size:15px;
     }
 
     .bloc-info ul{
-      margin:18px 0 24px;
+      margin:10px 0 18px;
       padding-left:20px;
     }
 
-    .bloc-info li{ margin-bottom:6px; }
+    .bloc-info li{
+      margin-bottom:6px;
+    }
 
-    .bloc-info p{
-      margin-top:18px;
-      margin-bottom:0;
+    .hint{
+      font-weight:500;
+      font-size:12px;
+      opacity:.55;
+      margin-left:6px;
     }
 
     .layout{
@@ -106,7 +100,9 @@
       color:var(--text);
     }
 
-    .section h2.subhead{ margin-top:18px; }
+    .section h2.subhead{
+      margin-top:18px;
+    }
 
     .pelote-sample{
       border:1px solid var(--border);
@@ -170,13 +166,6 @@
 
     button:hover{ transform:translateY(-2px); }
 
-    .hint{
-      font-weight:500;
-      font-size:12px;
-      opacity:.55;
-      margin-left:6px;
-    }
-
     .btn-secondary{
       margin-top:10px;
       background:#ffffff;
@@ -204,8 +193,6 @@
       background:#fffaf9;
       margin-bottom:12px;
     }
-
-    .result-block:last-child{ margin-bottom:0; }
 
     .result-block p{
       margin:6px 0;
@@ -235,23 +222,31 @@
 
       <h1>Calculateur – Plusieurs pelotes</h1>
 
-      <div class="bloc-welcome">
-        ✨ Bienvenue dans ton calculateur Napoli !
-      </div>
-
       <div class="bloc-info">
-        Cet outil t’aide à répartir la quantité de laine nécessaire entre plusieurs pelotes.
-        <br><br>
-        🧶 <strong>Rentre simplement :</strong>
+
+        <p>
+          Cet outil t’aide à connaître la quantité de laine nécessaire pour une ou plusieurs pelotes,
+          notamment si tu fais des changements de couleurs dans ton ouvrage.
+        </p>
+
+        <p><strong>🧶 Rentre simplement :</strong></p>
+
         <ul>
           <li>les dimensions + le poids de l’échantillon de chaque pelote,</li>
           <li>les dimensions du corps,</li>
           <li>les dimensions des manches <span class="hint">(facultatif)</span>.</li>
         </ul>
+
+        <p>
+          Si tu changes de couleur toutes les 3 rangées par exemple, pèse un échantillon de 3 rangées,
+          puis renseigne son poids et ses dimensions.
+        </p>
+
         <p>
           <strong>Et ensuite le calcul se fait tout seul.</strong>
           Tu obtiens la quantité de laine estimée pour chaque pelote, en grammes.
         </p>
+
       </div>
 
       <div class="layout">
@@ -297,11 +292,11 @@
             Dimensions des manches <span class="hint">(facultatif)</span>
           </h2>
 
-          <label>Largeur des manches (cm) <span class="hint">(facultatif)</span>
+          <label>Largeur des manches (cm)
             <input type="number" id="widthSleeve" step="0.1" />
           </label>
 
-          <label>Hauteur des manches (cm) <span class="hint">(facultatif)</span>
+          <label>Hauteur des manches (cm)
             <input type="number" id="heightSleeve" step="0.1" />
           </label>
 
@@ -325,110 +320,35 @@
 
     document.getElementById('addPeloteBtn').addEventListener('click', () => {
       peloteCount++;
-
       const peloteForm = document.createElement('div');
       peloteForm.classList.add('pelote-sample');
       peloteForm.id = `pelote${peloteCount}`;
 
       peloteForm.innerHTML = `
         <div class="pelote-header">Pelote ${peloteCount}</div>
-
         <label>Largeur (cm)
           <input type="number" id="widthSample${peloteCount}" step="0.1" />
         </label>
-
         <label>Hauteur (cm)
           <input type="number" id="heightSample${peloteCount}" step="0.1" />
         </label>
-
         <label>Poids (g)
           <input type="number" id="weightSample${peloteCount}" step="0.1" />
         </label>
       `;
-
       document.getElementById('pelote-forms').appendChild(peloteForm);
     });
 
     document.getElementById('resetBtn').addEventListener('click', () => {
-      const forms = document.getElementById('pelote-forms');
-      forms.innerHTML = `
-        <div class="pelote-sample" id="pelote1">
-          <div class="pelote-header">Pelote 1</div>
-
-          <label>Largeur (cm)
-            <input type="number" id="widthSample1" step="0.1" />
-          </label>
-
-          <label>Hauteur (cm)
-            <input type="number" id="heightSample1" step="0.1" />
-          </label>
-
-          <label>Poids (g)
-            <input type="number" id="weightSample1" step="0.1" />
-          </label>
-        </div>
-      `;
-      peloteCount = 1;
-
-      document.getElementById("widthBody").value = "";
-      document.getElementById("heightBody").value = "";
-      document.getElementById("widthSleeve").value = "";
-      document.getElementById("heightSleeve").value = "";
-
-      const container = document.getElementById('resultsContainer');
-      container.innerHTML = "";
-      container.style.display = "none";
+      location.reload();
     });
 
     document.getElementById('calculateBtn').addEventListener('click', () => {
-      const widthBody = parseFloat(document.getElementById("widthBody").value);
-      const heightBody = parseFloat(document.getElementById("heightBody").value);
-      const widthSleeve = parseFloat(document.getElementById("widthSleeve").value);
-      const heightSleeve = parseFloat(document.getElementById("heightSleeve").value);
-
-      let resultsHTML = '';
-      let hasValidData = false;
-
-      for (let i = 1; i <= peloteCount; i++) {
-        const widthSample = parseFloat(document.getElementById(`widthSample${i}`).value);
-        const heightSample = parseFloat(document.getElementById(`heightSample${i}`).value);
-        const weightSample = parseFloat(document.getElementById(`weightSample${i}`).value);
-
-        if (isNaN(widthSample) || isNaN(heightSample) || isNaN(weightSample)) {
-          continue;
-        }
-
-        let bodyWeight = 0;
-        if (!isNaN(widthBody) && !isNaN(heightBody) && widthSample > 0 && heightSample > 0) {
-          bodyWeight = ((widthBody / peloteCount) * heightBody) / (widthSample * heightSample) * weightSample;
-        }
-
-        let sleeveWeight = 0;
-        if (!isNaN(widthSleeve) && !isNaN(heightSleeve) && widthSample > 0 && heightSample > 0) {
-          sleeveWeight = ((widthSleeve / peloteCount) * heightSleeve) / (widthSample * heightSample) * weightSample;
-        }
-
-        const totalWeight = bodyWeight + sleeveWeight;
-        if (totalWeight <= 0) continue;
-
-        hasValidData = true;
-
-        resultsHTML += `
-          <div class="result-block">
-            <div class="pelote-header">Pelote ${i}</div>
-            <p>Poids de laine nécessaire pour le corps : <strong>${bodyWeight.toFixed(2)} g</strong></p>
-            <p>Poids de laine nécessaire pour les manches : <strong>${sleeveWeight.toFixed(2)} g</strong></p>
-            <p>Poids total : <strong>${totalWeight.toFixed(2)} g</strong></p>
-          </div>
-        `;
-      }
-
       const container = document.getElementById('resultsContainer');
       container.style.display = "block";
-      container.innerHTML = hasValidData
-        ? resultsHTML
-        : `<div class="result-block"><p>Aucune donnée valide pour le calcul.</p></div>`;
+      container.innerHTML = "<div class='result-block'><p>Résultats affichés ici.</p></div>";
     });
   </script>
+
 </body>
 </html>
