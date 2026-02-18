@@ -29,7 +29,7 @@ body{
   color:var(--text);
 }
 
-.container{max-width:1100px;margin:0 auto;}
+.container{max-width:1150px;margin:0 auto;}
 
 .card{
   background:var(--card);
@@ -55,16 +55,25 @@ h1{
   text-align:center;
 }
 
+/* Layout plus large */
 .layout{
   display:flex;
   flex-direction:column;
-  gap:18px;
+  gap:22px;
+}
+
+@media (min-width:900px){
+  .layout{
+    display:grid;
+    grid-template-columns: 1fr 1.3fr 1fr;
+    gap:26px;
+  }
 }
 
 .section{
   border:1px solid var(--border);
   border-radius:18px;
-  padding:18px;
+  padding:20px;
   background:#fff;
   box-shadow:0 10px 25px rgba(74,47,53,.06);
 }
@@ -100,7 +109,7 @@ label{
   justify-content:space-between;
   align-items:center;
   gap:12px;
-  margin-bottom:10px;
+  margin-bottom:12px;
   font-weight:600;
   font-size:14px;
 }
@@ -115,7 +124,7 @@ input[type="number"]{
 
 button{
   width:100%;
-  margin-top:12px;
+  margin-top:14px;
   padding:14px;
   border:none;
   border-radius:16px;
@@ -132,6 +141,38 @@ button{
   border:1px solid var(--border);
 }
 
+/* Inline radio compact */
+.inline-choice{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  margin-top:14px;
+  flex-wrap:nowrap;
+}
+
+.choice-label{
+  font-weight:700;
+  font-size:13px;
+}
+
+.radio-pill{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  padding:6px 12px;
+  border:1px solid var(--border);
+  border-radius:999px;
+  background:#fff;
+  font-weight:700;
+  font-size:12px;
+  cursor:pointer;
+}
+
+.radio-pill input{
+  accent-color:var(--accent);
+}
+
+/* Résultats */
 .results{
   display:none;
   margin-top:8px;
@@ -164,40 +205,10 @@ button{
   color:#a33a4a;
 }
 
-/* Inline radio compact */
-.inline-choice{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  flex-wrap:wrap;
-  margin-top:14px;
-}
-
-.choice-label{
-  font-weight:700;
-  font-size:13px;
-}
-
-.radio-pill{
-  display:flex;
-  align-items:center;
-  gap:6px;
-  padding:6px 12px;
-  border:1px solid var(--border);
-  border-radius:999px;
-  background:#fff;
-  font-weight:700;
-  font-size:12px;
-  cursor:pointer;
-}
-
-.radio-pill input{
-  accent-color:var(--accent);
-}
-
+/* Bloc info */
 .bloc-info{
   background:var(--info);
-  padding:24px;
+  padding:26px;
   border-radius:18px;
   margin-top:35px;
   border:1px solid var(--border);
@@ -226,11 +237,6 @@ button{
   border-radius:16px;
   margin-top:12px;
   font-size:14px;
-}
-
-@media (min-width:900px){
-  .layout{flex-direction:row;}
-  .section{flex:1;}
 }
 </style>
 </head>
@@ -298,7 +304,7 @@ Droit
 </label>
 </div>
 
-<h2 style="margin-top:18px;">Manches (facultatif)</h2>
+<h2 style="margin-top:20px;">Manches (facultatif)</h2>
 
 <label>Largeur des manches (cm)
 <input type="number" id="widthSleeve" step="0.1">
@@ -332,31 +338,6 @@ Droit
 <div id="resultsContainer" class="results"></div>
 </div>
 
-</div>
-
-<!-- INSTRUCTIONS -->
-<div class="bloc-info">
-<div class="mini-title">Comment ça marche ?</div>
-
-<p>
-Ce calculateur te permet de connaître la <strong>quantité de laine nécessaire pour ton ouvrage</strong>, avec <strong>une ou plusieurs pelotes</strong>.
-</p>
-
-<ul>
-<li><strong>les dimensions + le poids de l’échantillon</strong> de chaque pelote,</li>
-<li><strong>les dimensions du corps</strong>,</li>
-<li><strong>les dimensions des manches</strong> (facultatif).</li>
-</ul>
-
-<div class="bloc-exemple">
-<strong>Exemple :</strong><br>
-Si tu changes de couleur toutes les <strong>3 rangées</strong>, pèse un échantillon de <strong>3 rangées</strong>, puis renseigne son poids et ses dimensions.
-</div>
-
-<p style="margin-top:20px;">
-<strong>Et ensuite le calcul se fait tout seul.</strong>
-Tu obtiens la quantité estimée pour chaque pelote, en grammes.
-</p>
 </div>
 
 </div>
@@ -452,4 +433,6 @@ container.innerHTML=hasValidData?resultsHTML:`<div class="result-block"><p>Aucun
 </script>
 
 </body>
+</html>
+
 </html>
